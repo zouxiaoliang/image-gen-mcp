@@ -1,0 +1,8 @@
+/bin/
+/data/
+/dist/
+__pycache__/
+/config.yaml
+*.db
+*.db-shm
+*.db-wal

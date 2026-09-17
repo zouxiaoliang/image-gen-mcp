@@ -1,0 +1,73 @@
+# Copy to config.yaml. All paths below are relative to this file.
+default_model: openai
+output_dir: ./data
+allowed_input_dirs:
+  - ./input
+  - ./data/images
+concurrency: 2
+queue_size: 20
+task_timeout: 10m
+wait_timeout: 3s
+retention: 0s # No automatic deletion; e.g. 168h enables seven-day retention.
+preview_size: 768
+max_image_bytes: 20971520
+max_image_pixels: 40000000
+
+http:
+  listen: 127.0.0.1:8080
+  public_url: http://127.0.0.1:8080
+  token_env: IMAGE_MCP_TOKEN # Required for a non-loopback listener.
+
+# Profiles explicitly declare capabilities; these are not probed automatically.
+# Replace model names and allowed values with those supported by your account.
+models:
+  openai:
+    provider: openai
+    base_url: https://api.openai.com/v1
+    token: YOUR_OPENAI_API_KEY # Direct configuration; no environment variable required.
+    # token_env: OPENAI_API_KEY # Optional alternative when token is omitted.
+    model: YOUR_OPENAI_IMAGE_MODEL
+    capabilities: [generate, edit, mask]
+    max_images: 1
+    max_input_images: 4
+    parameters:
+      size: [auto, 1024x1024, 1536x1024, 1024x1536]
+      quality: [auto, low, medium, high]
+      output_format: [png, jpeg, webp]
+    extensions:
+      background:
+        type: string
+        enum: [auto, transparent, opaque]
+      input_fidelity:
+        type: string
+        enum: [low, high]
+
+  gateway:
+    provider: openai-compatible
+    base_url: https://YOUR_GATEWAY_HOST/v1
+    token_env: IMAGE_GATEWAY_TOKEN
+    model: YOUR_GATEWAY_IMAGE_MODEL
+    capabilities: [generate] # Add edit/mask only after verifying the gateway.
+    max_images: 1
+    max_input_images: 1
+    parameters:
+      size: [1024x1024]
+    extensions:
+      response_format:
+        type: string
+        enum: [b64_json, url]
+
+  gemini:
+    provider: gemini
+    base_url: https://generativelanguage.googleapis.com/v1beta
+    token_env: GEMINI_API_KEY
+    model: YOUR_GEMINI_IMAGE_MODEL
+    capabilities: [generate, edit] # This adapter does not implement masks.
+    max_images: 1
+    max_input_images: 4
+    parameters:
+      aspect_ratio: ["1:1", "3:2", "2:3", "16:9", "9:16"]
+      size: [1K, 2K, 4K] # Model-dependent; remove if your model lacks imageSize.
+    extensions:
+      temperature:
+        type: number

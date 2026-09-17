@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Connect over stdio",
+    "detail": "Real MCP subprocess / local fixture replay / no API key"
+  },
+  {
+    "title": "Discover tools and models",
+    "detail": "5 tools available / demo model configured"
+  },
+  {
+    "title": "generate_image -\u003e get_image_task",
+    "detail": "succeeded / PNG preview + original file verified",
+    "image": "generated.png"
+  },
+  {
+    "title": "edit_image -\u003e get_image_task",
+    "detail": "succeeded / reference image supplied / original verified",
+    "image": "edited.png"
+  },
+  {
+    "title": "Repeat the same request_id",
+    "detail": "Same task returned / 2 upstream calls total / no duplicate",
+    "image": "edited.png"
+  }
+]

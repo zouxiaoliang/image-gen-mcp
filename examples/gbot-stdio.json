@@ -1,0 +1,18 @@
+{
+  "tools": {
+    "mcpServers": {
+      "image-gen": {
+        "enabled": true,
+        "type": "stdio",
+        "command": "/absolute/path/image-gen-mcp/bin/image-gen-mcp",
+        "args": [
+          "-config",
+          "/absolute/path/image-gen-mcp/config.yaml",
+          "-transport",
+          "stdio"
+        ],
+        "toolTimeout": 30
+      }
+    }
+  }
+}
