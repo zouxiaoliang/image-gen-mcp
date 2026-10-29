@@ -31,7 +31,7 @@ go install github.com/zouxiaoliang/image-gen-mcp/cmd/image-gen-mcp@latest
 
 The executable goes into `GOBIN`, or `$(go env GOPATH)/bin` by default. Add that directory to `PATH`, or use the executable's absolute path.
 
-**Without Go:** download an archive from [Releases](https://github.com/zouxiaoliang/image-gen-mcp/releases) once the first release is published. Packages include the executable, example configuration, and docs. The workflow builds macOS, Linux, and Windows for amd64 and arm64, with `SHA256SUMS`. Windows uses `image-gen-mcp.exe`; macOS packages are currently unsigned.
+**Without Go:** download an archive from [Releases](https://github.com/zouxiaoliang/image-gen-mcp/releases). Packages include the executable, example configuration, and docs. The workflow builds macOS, Linux, and Windows for amd64 and arm64, with `SHA256SUMS`. Windows uses `image-gen-mcp.exe`; macOS packages are currently unsigned.
 
 From a source checkout:
 

@@ -30,7 +30,7 @@ go install github.com/zouxiaoliang/image-gen-mcp/cmd/image-gen-mcp@latest
 
 程序安装到 `GOBIN`，默认是 `$(go env GOPATH)/bin`。将该目录加入 `PATH`，或在客户端配置中填写绝对路径。
 
-**没有 Go 环境**：首个版本发布后，可从 [Releases](https://github.com/zouxiaoliang/image-gen-mcp/releases) 下载压缩包。发布流程覆盖 macOS、Linux、Windows 的 amd64 / arm64，附程序、示例配置、文档和 SHA-256 校验。Windows 使用 `.exe`；macOS 安装包目前未签名。
+**没有 Go 环境**：可从 [Releases](https://github.com/zouxiaoliang/image-gen-mcp/releases) 下载压缩包。发布流程覆盖 macOS、Linux、Windows 的 amd64 / arm64，附程序、示例配置、文档和 SHA-256 校验。Windows 使用 `.exe`；macOS 安装包目前未签名。
 
 源码构建：
 
